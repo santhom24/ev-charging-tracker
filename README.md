@@ -40,7 +40,7 @@ You open it on your phone like an app.
 | GitHub account (to host the public key on GitHub Pages) | 0 kr |
 | [Tailscale](https://tailscale.com) (private access from your phone) | 0 kr for personal use |
 
-Setup takes about **1–1½ hours** once. Some terminal copy-paste is needed for the server; everything else is done on the setup page in the app.
+Setup takes about **10-15 minutes** once. Some terminal copy-paste is needed for the server; everything else is done on the setup page in the app.
 
 ## Install
 
