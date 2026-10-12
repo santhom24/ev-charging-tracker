@@ -1,0 +1,15 @@
+[Unit]
+Description=EV charging dashboard (Streamlit)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=__USER__
+WorkingDirectory=__DIR__
+# Port 8501 is not opened to the internet - reach it privately through Tailscale.
+ExecStart=__DIR__/.venv/bin/streamlit run dashboard.py --server.port 8501 --server.address 0.0.0.0 --server.headless true --browser.gatherUsageStats false
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,22 @@
+# Personal files - never commit these
+settings.toml
+tesla_secrets.toml
+tokens.json
+private-key.pem
+public_site/
+charging.db
+car_state.json
+locations.json
+public_prices.json
+ocm_key.txt
+ntfy_topic.txt
+notify_state.json
+tesla_sync.json
+login_state.json
+*.tmp
+static/
+
+# Python
+.venv/
+__pycache__/
+*.pyc

@@ -1,0 +1,12 @@
+[theme]
+primaryColor = "#2a78d6"
+
+[server]
+# serves the static/ folder (home screen icon) at /app/static/
+enableStaticServing = true
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"   # hides the "Deploy" button

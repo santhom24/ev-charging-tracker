@@ -1,0 +1,66 @@
+# EV Charging Tracker - settings
+# The easiest way to fill this in is the setup page in the dashboard, which writes settings.toml for you.
+# To edit by hand instead: copy this file to settings.toml and change the values.
+# All prices in DKK. "ex_vat" = before 25% moms.
+
+[area]
+price_area = "DK1"              # DK1 = Jutland/Funen, DK2 = Zealand/Copenhagen
+
+[grid]
+# Your grid company (netselskab) - see your electricity bill.
+# The setup page finds these two codes for you (household tariff "Nettarif C time").
+gln_number = ""
+charge_type_code = ""
+manual_kr_per_kwh_ex_vat = 0.20   # used only if the two codes above are empty
+
+[energinet]
+gln_number = "5790000432752"      # Energinet - the same for everyone in Denmark
+notes = ["Transmissions nettarif", "Systemtarif"]
+manual_kr_per_kwh_ex_vat = 0.07
+
+[supplier]
+name = "My electricity supplier"
+markup_kr_per_kwh_ex_vat = 0.10   # supplier's markup per kWh ("tillæg") - see your bill
+monthly_fee_kr_incl_vat = 0
+
+[taxes]
+elafgift_kr_per_kwh_ex_vat = 0.008   # reduced rate for 2026-2027 (0.727 before / after)
+vat = 0.25
+
+[charging]
+charger_kw = 11.0          # home charger power
+battery_kwh = 75           # usable battery capacity
+efficiency = 0.90          # AC charging losses: the meter sees ~10% more than the battery gets
+poll_offset_s = 30         # the logger checks the car 30 s after every quarter hour
+
+[locations.home]
+lat = 0.0                  # set from the dashboard: "Car is here now - save as Home"
+lon = 0.0
+radius_m = 150
+price = "dynamic"          # = the real hourly price for your area, supplier and grid company
+
+[locations.office]
+lat = 0.0                  # set from the dashboard: "Car is here now - save as Work"
+lon = 0.0
+radius_m = 300
+price_kr_per_kwh = 0.0     # free at work? Otherwise what your employer charges
+
+[public]                   # estimates until real prices are known (you can correct each charge)
+ac_kr_per_kwh = 3.50
+dc_kr_per_kwh = 3.95
+supercharger_kr_per_kwh = 3.20
+
+[compare]                  # the car you'd otherwise drive, for the "would have cost" comparison
+fuel = "petrol"
+fuel_km_per_litre = 15
+fuel_kr_per_litre = 14.0
+
+[notify]                   # phone notifications through the free ntfy app
+charge_finished = true
+peak_alert = true
+peak_margin_kr = 0.5
+daily_tip = true
+
+[operator_prices]          # optional: your price per kWh per charging company
+# Clever = 4.39
+# Ionity = 3.79
